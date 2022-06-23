@@ -1,10 +1,9 @@
 package Base;
 
+import Webdriver.DriverManager;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-
-import java.sql.DriverManager;
 
 public class BaseTest {
 
@@ -13,18 +12,15 @@ public class BaseTest {
     @BeforeMethod
 
     public void setup_For_Login() {
-/       System.out.println("BeforeMethod");
+     System.out.println("BeforeMethod");
 
-//open browser
-        DriverManager driverManager = new DriverManager()
-//        System.setProperty("webdriver.chrome.driver","C:\\Users\\amit_\\IdeaProjects\\sdet-Automation-project\\Driver\\chromedriver.exe");
-//        WebDriverManager.chromedriver().setup();
-//        driver = new ChromeDriver();
+      //open browser
+       DriverManager driverManager = new DriverManager();
+        driver = driverManager.getDriver("chrome");
 
 
 
-
-        driver.navigate().to("https://www.saucedemo.com/");
+       driver.navigate().to("https://www.saucedemo.com/");
 
 
     }

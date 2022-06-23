@@ -1,28 +1,11 @@
 package login;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
+import Base.BaseTest;
 import org.openqa.selenium.By;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class loginPageTest {
-
-    ChromeDriver driver;
-
-    @BeforeMethod
-
-    public void setup_For_Login(){
-        //System.setProperty("webdriver.chrome.driver","C:\\Users\\amit_\\IdeaProjects\\sdet-Automation-project\\Driver\\chromedriver.exe");
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-
-        driver.navigate().to("https://www.saucedemo.com/");
-
-    }
-
+public class  loginPageTest extends BaseTest {
 
 
     @Test
@@ -73,10 +56,7 @@ public class loginPageTest {
 
 
     }
-    @AfterMethod
-    public void cleanup(){
-        driver.quit();
-    }
+
 
 
 
