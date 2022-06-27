@@ -35,4 +35,8 @@ public class LoginPage {
    public void enterUserName(String username) { driver.findElement(userNameTextField).sendKeys(username);}
 
     public void enterPassword(String password){ driver.findElement(passwordTextField).sendKeys(password);}
+
+    public void setLoginButtonID(String loginButtonID){ driver.findElement(By.id(loginButtonID)).click();}
+
+
 }
