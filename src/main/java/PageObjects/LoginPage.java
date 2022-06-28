@@ -7,13 +7,20 @@ public class LoginPage {
 
     WebDriver driver;
 
+    //constructor with parameter
+
+    public LoginPage(WebDriver driver){
+     this.driver=driver;
+    }
+
+
     //step1 create datatype
 
     private By userNameTextField = By.id(("user-name"));
 
     private By passwordTextField = By.id("password");
 
-    private By loginButtonID = By.id("login-button");
+    private By loginButton = By.id("login-button");
 
     private By productHeaderTitle = By.cssSelector("#header_container > div.header_secondary_container > span");
 
@@ -32,11 +39,18 @@ public class LoginPage {
         return status;
     }
 
-   public void enterUserName(String username) { driver.findElement(userNameTextField).sendKeys(username);}
+   public void enterUserName(String username) {
+        driver.findElement(userNameTextField).sendKeys(username);}
 
-    public void enterPassword(String password){ driver.findElement(passwordTextField).sendKeys(password);}
+    public void enterPassword(String password){
+        driver.findElement(passwordTextField).sendKeys(password);}
 
-    public void setLoginButtonID(String loginButtonID){ driver.findElement(By.id(loginButtonID)).click();}
-
+    public void enterUserName(String username, String password){
+        driver.findElement(userNameTextField).sendKeys(username);
+        driver.findElement(passwordTextField).sendKeys(password);
+    }
+     public void clickLoginBtn(){
+        driver.findElement(loginButton).click();
+     }
 
 }

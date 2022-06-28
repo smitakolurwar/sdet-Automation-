@@ -1,6 +1,7 @@
 package login;
 
 import Base.BaseTest;
+import PageObjects.LoginPage;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -22,16 +23,30 @@ public class  loginPageTest extends BaseTest {
         driver.findElement(By.id(loginButtonId)).click();
 
 
-        String productHeaderTitle="#header_container > div.header_secondary_container > span";
+        String productHeaderTitle = "#header_container > div.header_secondary_container > span";
         String productHeaderActualValue = driver.findElement(By.cssSelector(productHeaderTitle)).getText();
         String productHeaderExpectedValue = "PRODUCTS";
 
         Assert.assertEquals(productHeaderActualValue, productHeaderExpectedValue);
 
+    }
+  // call loginPage Object method form pom
+    @Test
+
+    public void Verify_Login_Working_With_Valid_StandardCredential_pom() {
+        LoginPage loginPage = new LoginPage(driver);
+        boolean navigationStatus = loginPage.navigate();
+        Assert.assertTrue(navigationStatus);
 
 
+        loginPage.enterUserName("abc");
+        loginPage.enterPassword("asjj");
+        loginPage.clickLoginBtn();
 
     }
+
+
+
 
     @Test
 
@@ -57,6 +72,15 @@ public class  loginPageTest extends BaseTest {
 
     }
 
+
+    @Test
+
+    public  void login_Working_With_Invalid_StandardCredential_pom(){
+
+        LoginPage loginPage = new LoginPage(driver) {
+           login
+        }
+    }
 
 
 
