@@ -2,6 +2,7 @@ package login;
 
 import Base.BaseTest;
 import PageObjects.LoginPage;
+import PageObjects.ProductsPage;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -39,9 +40,18 @@ public class  loginPageTest extends BaseTest {
         Assert.assertTrue(navigationStatus);
 
 
-        loginPage.enterUserName("abc");
-        loginPage.enterPassword("asjj");
+        loginPage.enterUserName("standard_user");
+        loginPage.enterPassword("secret_sauce");
         loginPage.clickLoginBtn();
+
+        //actual assertion
+
+        ProductsPage productsPage = new ProductsPage(driver);
+        boolean status = productsPage.isPageDisplayed();
+        Assert.assertTrue(status);
+
+
+
 
     }
 
@@ -73,18 +83,12 @@ public class  loginPageTest extends BaseTest {
     }
 
 
-    @Test
 
-    public  void login_Working_With_Invalid_StandardCredential_pom(){
-
-        LoginPage loginPage = new LoginPage(driver) {
-           login
-        }
     }
 
 
 
-}
+
 
 
 

@@ -1,9 +1,21 @@
 package PageObjects;
 
+import dev.failsafe.internal.util.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class ProductsPage {
+
+
+    // define local driver
+    private WebDriver driver;
+
+    //constructor with paramater
+
+    public ProductsPage(WebDriver driver){
+    this.driver=driver;
+    }
+
 
     //create datatype
 
@@ -13,21 +25,32 @@ public class ProductsPage {
 
     private  By cartBtn = By.xpath("//*[@id=\"shopping_cart_container\"]/a");
 
-    private By productsTitle = By.xpath("//*[@id=\"header_container\"]/div[2]/span");
+    private By productsHeaderText = By.xpath("//*[@id=\"header_container\"]/div[2]/span");
 
     private  By roboImg = By.xpath("//*[@id=\"header_container\"]/div[2]/div[1]");
 
     private By sortList = By.xpath("//*[@id=\"header_container\"]/div[2]/div[2]/span/select");
 
-    private By botFooter = By.xpath("//*[@id=\"page_wrapper\"]/footer/img");
-
-    private By twitter = By.xpath("//*[@id=\"page_wrapper\"]/footer/ul/li[1]/a");
-
-    private  By facebook = By.xpath("//*[@id=\"page_wrapper\"]/footer/ul/li[2]/a");
-
-    private By linkedIn = By.xpath("//*[@id=\"page_wrapper\"]/footer/ul/li[3]/a");
+    private By Footer = By.xpath("//*[@id=\"page_wrapper\"]/footer/img");
 
 
+
+// methods for behaviour page
+
+    public boolean navigate(){
+
+        driver.navigate().to("https://www.saucedemo.com/inventory.html");
+        boolean status = driver.findElement(productsHeaderText).isDisplayed();
+        return status;
+
+    }
+
+     public  boolean isPageDisplayed(){
+        boolean displyedFlag = driver.findElement(productsHeaderText).isDisplayed();
+         return displyedFlag;
+
+
+     }
 
 
 
